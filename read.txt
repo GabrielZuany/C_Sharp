@@ -1,0 +1,5 @@
+to create a new project:
+dotnet new console -o projectname
+
+to run:
+dotnet run
