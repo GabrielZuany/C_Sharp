@@ -1,0 +1,16 @@
+Getting started:
+1) Create Models folder and Type.cs (datatype <TAD>)
+2) Create Services folder and TypeServices.cs with methods like Add, Update, Delete...
+3) Create the Controllers folder and TypeController.cs ([HttpGet], [HttpPost], ...).
+
+=================================================================
+
+Antes de começar a implementar uma API da Web para pizza, você precisa ter um armazenamento de dados no qual
+ possa realizar operações.
+ 
+Você precisa de uma classe model para representar uma pizza no estoque. O modelo contém propriedades que 
+representam as características de uma pizza. O modelo é usado para passar dados na API Web e persistir opções 
+de pizza no armazenamento de dados.
+
+Nesta unidade, o armazenamento de dados é um serviço de cache na memória local simples. Em um aplicativo do 
+mundo real, você consideraria usar um banco de dados, como SQL Server, com o Entity Framework Core.
