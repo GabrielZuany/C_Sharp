@@ -1,5 +1,6 @@
+using System.Text.Json;
 using ContosoPizza.Models;
-
+using System.IO;
 namespace ContosoPizza.Services;
 
 public static class PizzaService
@@ -9,11 +10,16 @@ public static class PizzaService
     static int nextId = 3;
     static PizzaService()
     {
-        Pizzas = new List<Pizza>
+        //Read a json file and parse it to create a list of pizzas.
+        string fileName = "data.json";
+        string jsonString = File.ReadAllText(fileName);
+        Pizzas = JsonSerializer.Deserialize<List<Pizza>>(jsonString)!;
+
+        /*Pizzas = new List<Pizza>
         {
             new Pizza {Id = 1, Name = "Classic Italian", IsGlutenFree = false},
             new Pizza {Id = 2, Name = "Veggie", IsGlutenFree = true}
-        };
+        };*/
 
     }
 
