@@ -24,5 +24,7 @@ namespace FormsCSHTML.Pages
             FormsServices.Services.FormsServices.Add(NewUsr);
             return RedirectToAction("Get");
         }
+
+
     }
 }

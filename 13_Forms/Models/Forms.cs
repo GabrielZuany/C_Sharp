@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-
 namespace FormsModel.Models;
 
 public class Forms
@@ -8,8 +7,8 @@ public class Forms
 
     [Required, MaxLength(20), MinLength(2)]
     public string? Name {get; set;}
-    [Required, MinLength(8)]
+    [Required, MinLength(8), MaxLength(50)]
     public string? Password {get; set;}
-    [Required]
+    [Required, EmailAddress]
     public string? Mail{get; set;}
 }

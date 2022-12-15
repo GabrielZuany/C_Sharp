@@ -1,1 +1,14 @@
-[{"Id":0,"Name":"Admin","Password":"Avs12_iDjkzx@3dd#_jdm_admin","Mail":"admin@mail.com"}]
+[
+    {
+        "Id": 0,
+        "Name": "Admin",
+        "Password": "Avs12_iDjkzx@3dd#_jdm_admin",
+        "Mail": "admin@mail.com"
+    },
+    {
+        "Id": 1,
+        "Name": "Zuany",
+        "Password": "senhateste1",
+        "Mail": "mailteste1@mail.com"
+    }
+]

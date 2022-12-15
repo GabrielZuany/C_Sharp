@@ -33,6 +33,33 @@ public static class FormsServices
         System.IO.File.WriteAllText("Data/users.json", AllUsers);
     }
 
+    public static bool VerifyAccount(Forms user)
+    {   
+    
+        foreach (var usr in Users)
+        {   
+            if(!VerifyAdmin(user) && (user.Name == usr.Name && user.Password == usr.Password && user.Mail == usr.Mail)){
+                Console.WriteLine("Redirecting to AccountPage...");
+                return true;
+            }
+        }
+        Console.WriteLine("Invalid user or user not found.");
+        return false;
+    }
+
+    public static bool VerifyAdmin(Forms user)
+    {   
+        Forms? adm = Get(0);
+        
+        if(user.Name == adm.Name && user.Password == adm.Password && user.Mail == adm.Mail){
+            Console.WriteLine("Redirecting to Admin page...");
+            return true;
+        }
+        
+        Console.WriteLine("Invalid credentials.");
+        return false;
+    }
+
     public static void Delete(int id)
     {
         var usr = Get(id);
