@@ -1,0 +1,37 @@
+﻿@page
+@using FormsModel.Models
+@using FormsServices.Services
+@model AccountAdmin.Pages.AccountAdminModel
+@{
+    ViewData["Title"] = "AdminPage";
+}
+@if(true){
+
+
+<h1>Account Admin Page</h1>
+<table class="table mt-5">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Password</th>
+            <th scope="col">Mail</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    @foreach (var usr in Model.Users)
+    {
+        <tr>
+            <td>@usr.Name</td>
+            <td>@usr.Password</td>
+            <td>@usr.Mail</td>
+            <td>
+                <form method="post" asp-page-handler="Delete" asp-route-id="@usr.Id">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+
+}
