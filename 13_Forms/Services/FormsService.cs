@@ -61,7 +61,13 @@ public static class FormsServices
     }
 
     public static void Delete(int id)
-    {
+    {   
+        // do not reset the page after admin make a user delete.
+        var adm = Get(0);
+        adm.AdmOn = true;
+        adm.On = 1;
+        Update(adm);
+
         var usr = Get(id);
         if(usr == null){
             return;
@@ -80,6 +86,16 @@ public static class FormsServices
         }
         Users[index] = usr;
 
+        string AllUsers = JsonSerializer.Serialize<List<Forms>>(Users);
+        System.IO.File.WriteAllText("Data/users.json", AllUsers);
+    }
+
+    public static void ResetAdmStatus()
+    {
+        Forms? adm = Get(0);
+        adm.AdmOn = false;
+        adm.On = 0;
+        Update(adm);
         string AllUsers = JsonSerializer.Serialize<List<Forms>>(Users);
         System.IO.File.WriteAllText("Data/users.json", AllUsers);
     }

@@ -11,4 +11,6 @@ public class Forms
     public string? Password {get; set;}
     [Required, EmailAddress]
     public string? Mail{get; set;}
+    public int On {get; set;}
+    public bool AdmOn {get; set;}
 }
