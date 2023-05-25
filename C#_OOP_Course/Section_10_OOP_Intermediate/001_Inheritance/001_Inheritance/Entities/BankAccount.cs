@@ -6,6 +6,7 @@ namespace _001_Inheritance.Entities
         public int AccountNumber { get; private set; }
         public string Holder { get; private set; }
         public double Balance { get; protected set; } // Protected: Only the class itself and subclasses can change the value of Balance.
+        private double WithdrawFee = 5.0;
 
         public BankAccount()
         {
@@ -18,11 +19,11 @@ namespace _001_Inheritance.Entities
             Balance = balance;
         }
 
-        public void Withdraw(double amount)
+        public virtual void Withdraw(double amount) // The "virtual" keyword indicates that the method can be overrided by subclasses.
         {
-            if (Balance - amount >= 0)
+            if (Balance - amount - WithdrawFee >= 0)
             {
-                Balance -= amount;
+                Balance -= (amount + WithdrawFee);
             }
             else
             {
