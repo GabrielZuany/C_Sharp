@@ -26,6 +26,7 @@ namespace FileStream_StreamReader
             {
                 if (sr != null) sr.Close();
                 if (fs != null) fs.Close();
+
             }
         }
     }
