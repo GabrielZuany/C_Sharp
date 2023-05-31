@@ -21,7 +21,6 @@ namespace Predicate
             {
                 Console.WriteLine(p);
             }
-                        
         }
 
         static void UpdatePrice(Product p)
