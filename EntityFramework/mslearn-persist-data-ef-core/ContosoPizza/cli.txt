@@ -1,0 +1,18 @@
+Create a migration that you can use to create your initial database:
+	$ dotnet ef migrations add InitialCreate --context PizzaContext
+
+(In the preceding command:
+
+The migration is given a name of InitialCreate.
+The --context option specifies the name of the class in the ContosoPizza project, which derives from DbContext )
+
+Apply the new migration to the database:
+	$ dotnet ef database update --context PizzaContext
+
+
+Add a new migration to the project:
+	$ dotnet ef migrations add ModelRevisions --context PizzaContext
+
+
+Create a new migration to the project:
+	$ dotnet ef dbcontext scaffold "Data Source=Promotions/Promotions.db" Microsoft.EntityFrameworkCore.Sqlite --context-dir Data --output-dir Models
