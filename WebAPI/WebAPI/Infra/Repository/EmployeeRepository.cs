@@ -14,6 +14,11 @@ namespace WebAPI.Infra.Repository
             _context.SaveChanges();
         }
 
+        public Employee? Get(Guid id)
+        {
+            return _context.Employees.Find(id);
+        }
+
         public List<Employee> GetAll()
         {
             return _context.Employees.ToList();

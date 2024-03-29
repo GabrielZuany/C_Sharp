@@ -16,13 +16,16 @@ namespace WebAPI.Model
         public int Age { get; private set; }
         [Column("postalcode")]
         public string Postalcode { get; private set; }
+        [Column("photo")]
+        public string? Photo { get; private set; }
 
-        public Employee(string fullname, int age, string postalcode)
+        public Employee(string fullname, int age, string postalcode, string photo)
         {
             Id = Guid.NewGuid();
             Fullname = fullname ?? throw new ArgumentNullException(nameof(fullname));
             Age = age;
             Postalcode = postalcode;
+            Photo = photo;
         }
     }
 }

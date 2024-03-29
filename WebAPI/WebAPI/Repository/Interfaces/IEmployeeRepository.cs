@@ -6,5 +6,6 @@ namespace WebAPI.Repository.Interfaces
     {
         void Add(Employee employee);
         List<Employee> GetAll();
+        Employee? Get(Guid id);
     }
 }
