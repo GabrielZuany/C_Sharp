@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebAPI.Model;
 using WebAPI.Repository.Interfaces;
 using WebAPI.ViewModel;
@@ -16,6 +17,7 @@ namespace WebAPI.Controllers
             _employeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
         }
 
+        [Authorize]
         [HttpPost("add-employee")]
         public IActionResult Add([FromForm]EmployeeViewModel employeeView)
         {
@@ -28,6 +30,7 @@ namespace WebAPI.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPost("{id}/download-photo")]
         public IActionResult DownloadPhoto(Guid id)
         {
@@ -37,6 +40,7 @@ namespace WebAPI.Controllers
             return File(dataBytes, "image/jpeg");
         }
 
+        [Authorize]
         [HttpGet("get-employee")]
         public IActionResult GetAll()
         {

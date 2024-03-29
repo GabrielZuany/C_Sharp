@@ -27,5 +27,9 @@ namespace WebAPI.Model
             Postalcode = postalcode;
             Photo = photo;
         }
+
+        public Employee()
+        {
+        }
     }
 }
