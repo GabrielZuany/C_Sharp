@@ -19,9 +19,9 @@ namespace WebAPI.Infra.Repository
             return _context.Employees.Find(id);
         }
 
-        public List<Employee> GetAll()
+        public List<Employee> Get(int pageNumber, int pageQuantity)
         {
-            return _context.Employees.ToList();
+            return _context.Employees.Skip((pageNumber-1) * pageQuantity).Take(pageQuantity).ToList();
         }
     }
 }
