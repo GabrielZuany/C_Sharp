@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.Model;
-using WebAPI.Repository.Interfaces;
-using WebAPI.ViewModel;
+using WebAPI.Application.ViewModel;
+using WebAPI.Domain.Repository;
+using WebAPI.Domain.Model;
 
 namespace WebAPI.Controllers
 {
@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost("add-employee")]
         public IActionResult Add([FromForm]EmployeeViewModel employeeView)
         {
@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost("{id}/download-photo")]
         public IActionResult DownloadPhoto(Guid id)
         {
@@ -55,7 +55,7 @@ namespace WebAPI.Controllers
             }
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("get-employees")]
         public IActionResult Get(int pageNumber, int pageQuantity)
         {

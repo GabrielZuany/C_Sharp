@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebAPI.ViewModel
+namespace WebAPI.Application.ViewModel
 {
     public class EmployeeViewModel
     {

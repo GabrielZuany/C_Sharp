@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using WebAPI.Model;
-using WebAPI.Repository.Interfaces;
+using WebAPI.Domain.Model;
+using WebAPI.Domain.Repository;
+using WebAPI.DTOs;
 
 namespace WebAPI.Infra.Repository
 {
@@ -19,9 +20,21 @@ namespace WebAPI.Infra.Repository
             return _context.Employees.Find(id);
         }
 
-        public List<Employee> Get(int pageNumber, int pageQuantity)
+        public List<EmployeeDTO> Get(int pageNumber, int pageQuantity)
         {
-            return _context.Employees.Skip((pageNumber-1) * pageQuantity).Take(pageQuantity).ToList();
+            return _context.Employees
+                .Skip((pageNumber-1) * pageQuantity)
+                .Take(pageQuantity)
+                .Select( b =>
+                    new EmployeeDTO()
+                    {
+                        Id = b.Id,
+                        Fullname = b.Fullname,
+                        Photo = b.Photo
+
+                    }
+                )
+                .ToList();
         }
     }
 }
